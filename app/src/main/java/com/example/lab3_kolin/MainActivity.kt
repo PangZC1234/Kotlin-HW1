@@ -1,7 +1,7 @@
 package com.example.lab3_kolin
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioButton
@@ -9,31 +9,22 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
-        var edName: EditText?
-        var tvText: TextView?
-        var tvName: TextView?
-        var tvWinner: TextView?
-        var tvMmora: TextView?
-        var tvCmora: TextView?
-        var btnScissor: RadioButton?
-        var btnStone: RadioButton?
-        var btnPaper: RadioButton?
-        var btnMora: Button?
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        edName = findViewById(R.id.ed_name)
-        tvText = findViewById(R.id.tv_text)
-        tvName = findViewById(R.id.tv_name)
-        tvWinner = findViewById(R.id.tv_winner)
-        tvMmora = findViewById(R.id.tv_mmora)
-        tvCmora = findViewById(R.id.tv_cmora)
-        btnScissor = findViewById(R.id.btn_scissor)
-        btnStone = findViewById(R.id.btn_stone)
-        btnPaper = findViewById(R.id.btn_paper)
-        btnMora = findViewById(R.id.btn_mora)
-        btnMora.setOnClickListener(View.OnClickListener {
+        val edName: EditText = findViewById(R.id.ed_name)
+        val tvText: TextView = findViewById(R.id.tv_text)
+        val tvName: TextView = findViewById(R.id.tv_name)
+        val tvWinner: TextView = findViewById(R.id.tv_winner)
+        val tvMmora: TextView = findViewById(R.id.tv_mmora)
+        val tvCmora: TextView = findViewById(R.id.tv_cmora)
+        val btnScissor: RadioButton = findViewById(R.id.btn_scissor)
+        val btnStone: RadioButton = findViewById(R.id.btn_stone)
+        val btnPaper: RadioButton = findViewById(R.id.btn_paper)
+        val btnMora: Button = findViewById(R.id.btn_mora)
+        btnMora.setOnClickListener {
             if (edName.length() < 1)
                 tvText.text = "請輸入玩家姓名"
             else {
@@ -77,6 +68,6 @@ class MainActivity : AppCompatActivity() {
                     tvText.text = "平局，請再試一次！"
                 }
             }
-        })
+        }
     }
 }
